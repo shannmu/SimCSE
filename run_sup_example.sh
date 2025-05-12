@@ -15,9 +15,9 @@ export OMP_NUM_THREADS=8
 # Use distributed data parallel
 # If you only want to use one card, uncomment the following line and comment the line with "torch.distributed.launch"
 python train.py \
-    --model_name_or_path /home/shanmu/workspace/SimCSE/models/bert-base-uncased \
+    --model_name_or_path /root/SimCSE/models/bert-base-uncased \
     --train_file data/nli_for_simcse.csv \
-    --output_dir result/my-sup-simcse-bert-base-uncased \
+    --output_dir /root/autodl-tmp/result/my-sup-simcse-bert-base-uncased \
     --num_train_epochs 3 \
     --per_device_train_batch_size 128 \
     --learning_rate 5e-5 \
@@ -29,11 +29,10 @@ python train.py \
     --pooler_type cls \
     --overwrite_output_dir \
     --temp 0.05 \
-    --do_train \
     --do_eval \
     --fp16 \
     --similarity_threshold_high 0.9 \
     --similarity_threshold_low 0.4 \
-    --help_model_path /home/shanmu/workspace/SimCSE/models/bert-base-uncased \
+    --help_model_path /root/SimCSE/models/bert-base-uncased \
     --dynamic_mask true \
     "$@"
